@@ -1,0 +1,49 @@
+html, body{
+    background-color: white;
+    height: 100%;
+}
+
+table{
+    width: 100%;
+}
+
+thead{
+    font-size: larger;
+    text-align: center;
+    color:#8ba612;
+}
+
+.header{
+    background-color: #8ba612;
+}
+
+td{
+    padding-top: 15px;
+}
+
+.formulaire{
+    justify-content: center;
+    height: max-content;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 30px;
+    margin-bottom: 300px;
+    padding-bottom: 5%;
+    padding-left: 7.5%;
+    padding-right: 7.5%;
+    padding-top: 5% ;
+    border: solid;
+    border-radius: 1em;
+    border-width: 1px;
+}
+
+.sumbit-form{
+    margin-top: 20px;
+    color: white;
+    background-color: #8ba612;
+}
+
+.sumbit-form:hover{
+    zoom: 102%;
+    background-color: #768d10;
+}

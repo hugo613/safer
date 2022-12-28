@@ -1,0 +1,16 @@
+.footer{
+    width: 100%;
+    height: 50px;
+    color: white;
+    background-color: rgb(53, 53, 53);
+    font-family: "Arial";
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: medium;
+    position: fixed;
+    bottom: 0;
+  }
