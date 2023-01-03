@@ -11,10 +11,38 @@
 <div class="test">
     <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/linuxlite/Bureau/ProjetCours/SymfonyWS/safer/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/linuxlite/Bureau/ProjetCours/SymfonyWS/safer/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Titre</th>
+                <th scope="col">Descrition</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Code postal</th>
+                <th scope="col">Surface</th>
+                <th scope="col">Type</th>
+                <th scope="col"><a></a></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for bien in lstBien %}
+            <tr>
+                <th scope="row">{{ bien.id }}</th>
+                <td>{{ bien.titre }}</td>
+                <td>{{ bien.description }}</td>
+                <td>{{ bien.prix}}</td>
+                <td>{{ bien.cp }}</td>
+                <td>{{ bien.surface }}</td>
+                {% if bien.estVente == true %}
+                    <td>Vente</td>
+                {% else %}
+                    <td>Location</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
 </div>
 {% endblock %}

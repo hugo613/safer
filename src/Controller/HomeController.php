@@ -38,10 +38,8 @@ class HomeController extends AbstractController
 */
         $tab = $bienRepository->findAll();
 
-        dd($tab);
-
             return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'controller_name' => 'HomeController', 'lstBien' => $tab
         ]);
     }
 }
