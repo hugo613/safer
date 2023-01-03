@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Bien;
+use App\Repository\BienRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -48,6 +51,15 @@ class BienController extends AbstractController
         $formView=$form->createView();
         return $this->render('bien/add.html.twig', [
             'formView' => $formView,
+        ]);
+    }
+
+    #[Route('/delBien', name: 'app_del_bien')]
+    public function delete(BienRepository $bienRepository, int $id){
+        $bien = $bienRepository->find($id);
+        $bienRepository->remove($bien);
+        return $this->render('bien/index.html.twig', [
+            'controller_name' => 'BienController',
         ]);
     }
 }

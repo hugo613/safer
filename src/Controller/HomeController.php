@@ -36,6 +36,10 @@ class HomeController extends AbstractController
         $b2->setDescription("une description modifier");
         $em->flush($b2); //remove pour sup
 */
+        $tab = $bienRepository->findAll();
+
+        dd($tab);
+
             return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
         ]);

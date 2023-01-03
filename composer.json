@@ -45,7 +45,6 @@
         "twig/twig": "^2.12|^3.0"
     },
     "config": {
-        "platform-check": false,
         "allow-plugins": {
             "symfony/flex": true,
             "symfony/runtime": true
