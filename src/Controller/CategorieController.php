@@ -2,34 +2,33 @@
 
 namespace App\Controller;
 
-use App\Entity\Bien;
-use App\Form\BienType;
+use App\Entity\Categorie;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\HttpFoundation\HttpFoundationRequestHandler;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
 
-class BienController extends AbstractController
+class CategorieController extends AbstractController
 {
-    #[Route('/bien', name: 'app_bien')]
+    #[Route('/categorie', name: 'app_categorie')]
     public function index(): Response
     {
-        return $this->render('bien/index.html.twig', [
-        'controller_name' => 'BienController',
+        return $this->render('categorie/index.html.twig', [
+            'controller_name' => 'CategorieController',
         ]);
     }
-
 
     #[Route('/bien/add', name: 'add_bien')]
     public function add(HttpFoundationRequest $request, EntityManagerInterface $entityManager)
     {
-        $bien = new Bien();
+        $categorie = new Categorie();
 
-        $form = $this->createForm(BienType::class, $bien);
+        $form = $this->createForm(BienType::class, $categorie);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
-            $entityManager->persist($bien);
+            $entityManager->persist($categorie);
             $entityManager->flush();
         }
 
@@ -39,45 +38,45 @@ class BienController extends AbstractController
     }
 
 
-    #[Route('/bien/modif/{id}', name: "update_bien")]
+    #[Route('/categorie/modif/{id}', name: "update_cat")]
     public function update( HttpFoundationRequest $request, EntityManagerInterface $entityManager, int $id)
     {
-        $bien = $entityManager->getRepository(Bien::class)->find($id);
+        $categorie = $entityManager->getRepository(Categorie::class)->find($id);
 
-        if(!$bien){
+        if(!$categorie){
             throw $this->createNotFoundException(
-                'No bien found for id '.$id
+                'No categorie found for id '.$id
             );
         }
 
-        $form = $this->createForm(BienType::class, $bien);
+        $form = $this->createForm(CategorieType::class, $categorie);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
-            $entityManager->persist($bien);
+            $entityManager->persist($categorie);
             $entityManager->flush();
         }
 
-        return $this->render('bien/form.html.twig', [
+        return $this->render('categorie/form.html.twig', [
         'formView' => $form->createView(), 'action' => "Modifier"
         ]);
     }
 
-    #[Route('/bien/suppr/{id}', name: 'delete_bien')]
+    #[Route('/categorie/suppr/{id}', name: 'delete_cat')]
     public function delete(EntityManagerInterface $entityManager, int $id)
     {
-        $bien = $entityManager->getRepository(Bien::class)->find($id);
+        $categorie = $entityManager->getRepository(Categorie::class)->find($id);
 
-        if(!$bien){
+        if(!$categorie){
             throw $this->createNotFoundException(
-                'No bien found for id '.$id
+                'No categorie found for id '.$id
             );
         }
 
-        $entityManager->remove($bien);
+        $entityManager->remove($categorie);
         $entityManager->flush();
 
-        return $this->render('bien/index.html.twig', [
-            'controller_name' => 'BienController',
+        return $this->render('categorie/index.html.twig', [
+            'controller_name' => 'CategorieController',
         ]);
     }
 }

@@ -21,7 +21,7 @@
                 <th scope="col">Code postal</th>
                 <th scope="col">Surface</th>
                 <th scope="col">Type</th>
-                <th scope="col"><a></a></th>
+                <th scope="col">Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -38,6 +38,7 @@
                 {% else %}
                     <td>Location</td>
                 {% endif %}
+                <td><a href="/delBien/{{ bien.id }}">Delete</a></td>
             </tr>
             {% endfor %}
         </tbody>
