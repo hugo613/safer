@@ -3,10 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Categorie;
+use App\Form\CategorieType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\HttpFoundation\HttpFoundationRequestHandler;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -20,19 +20,19 @@ class CategorieController extends AbstractController
         ]);
     }
 
-    #[Route('/bien/add', name: 'add_bien')]
+    #[Route('/categorie/add', name: 'add_cat')]
     public function add(HttpFoundationRequest $request, EntityManagerInterface $entityManager)
     {
         $categorie = new Categorie();
 
-        $form = $this->createForm(BienType::class, $categorie);
+        $form = $this->createForm(CategorieType::class, $categorie);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
             $entityManager->persist($categorie);
             $entityManager->flush();
         }
 
-        return $this->render('bien/form.html.twig', [
+        return $this->render('categorie/form.html.twig', [
         'formView' => $form->createView(), 'action' => "Ajouter"
         ]);
     }
