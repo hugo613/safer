@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<div class="formulaire">
+    {{ form_start(registrationForm) }}
+    {{ form_errors(registrationForm) }}
+    <table>
+        <thead>
+            <tr>
+                <th colspan=2>Ajouter un Admin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan=2>{{form_row(registrationForm.email)}}</td>
+            </tr>
+            <tr>
+                <td colspan=1>{{ form_row(registrationForm.plainPassword, {label: 'Password'})}}</td>
+                <td colspan=1>{{ form_row(registrationForm.agreeTerms) }}</td>
+            </tr>
+             <tr>
+                <td colspan=2>{{form_row(registrationForm.add)}}</td>
+            </tr>
+        </tbody>
+    </table>
+    {{ form_end(registrationForm) }}
+</div>
+{% endblock %}

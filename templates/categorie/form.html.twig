@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body%}
+    <div class="formulaire">
+    {{form_start(formView)}}
+    {{form_errors(formView)}}
+    <table>
+        <thead>
+            <tr>
+                <th colspan=2>{{action}} Catégorie</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan=2>{{form_row(formView.type)}}</td>
+            </tr>
+            <tr>
+                <td colspan=2{{form_row(formView.add)}}</td>
+            </tr>
+            </tbody>
+        </table>
+        {{form_widget(formView)}}
+        {{form_end(formView)}}
+    </div>
+{% endblock %}

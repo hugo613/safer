@@ -3,47 +3,12 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="test">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Titre</th>
-                <th scope="col">Descrition</th>
-                <th scope="col">Prix</th>
-                <th scope="col">Code postal</th>
-                <th scope="col">Surface</th>
-                <th scope="col">Type</th>
-                <th scope="col">Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for bien in lstBien %}
-            <tr>
-                <th scope="row">{{ bien.id }}</th>
-                <td>{{ bien.titre }}</td>
-                <td>{{ bien.description }}</td>
-                <td>{{ bien.prix}}</td>
-                <td>{{ bien.cp }}</td>
-                <td>{{ bien.surface }}</td>
-                {% if bien.estVente == true %}
-                    <td>Vente</td>
-                {% else %}
-                    <td>Location</td>
-                {% endif %}
-                <td><a href="/delBien/{{ bien.id }}">Delete</a></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-
+<div class="content">
+    <div class="top-page">
+        
+    </div>
+    <div class="separator"></div>
+    <div class="reste de la page a faire">
+    </div>
 </div>
 {% endblock %}

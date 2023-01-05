@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Bien;
 use App\Form\BienType;
+use App\Repository\BienRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,72 +13,65 @@ use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
 
 class BienController extends AbstractController
 {
-    #[Route('/bien', name: 'app_bien')]
-    public function index(): Response
+    #[Route('/admin/bien', name: 'app_bien')]
+    public function index(BienRepository $bienRepository): Response
     {
-        return $this->render('bien/index.html.twig', [
-        'controller_name' => 'BienController',
-        ]);
+        $tab = $bienRepository->findAll();
+        return $this->render('bien/index.html.twig', ['lstBien' => $tab]);
     }
 
 
-    #[Route('/bien/add', name: 'add_bien')]
+    #[Route('/admn/bien/add', name: 'add_bien')]
     public function add(HttpFoundationRequest $request, EntityManagerInterface $entityManager)
     {
         $bien = new Bien();
-
         $form = $this->createForm(BienType::class, $bien);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
             $entityManager->persist($bien);
             $entityManager->flush();
+            $this->addFlash('success', 'Bien cree avec succes !');
+            return $this->redirectToRoute('app_bien');
         }
-
         return $this->render('bien/form.html.twig', [
         'formView' => $form->createView(), 'action' => "Ajouter"
         ]);
     }
 
 
-    #[Route('/bien/modif/{id}', name: "update_bien")]
+    #[Route('/admin/bien/modif/{id}', name: "update_bien")]
     public function update( HttpFoundationRequest $request, EntityManagerInterface $entityManager, int $id)
     {
         $bien = $entityManager->getRepository(Bien::class)->find($id);
-
         if(!$bien){
             throw $this->createNotFoundException(
                 'No bien found for id '.$id
             );
         }
-
         $form = $this->createForm(BienType::class, $bien);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
             $entityManager->persist($bien);
             $entityManager->flush();
+            $this->addFlash('success', 'Bien modifier avec succes !');
+            return $this->redirectToRoute('app_bien');
         }
-
         return $this->render('bien/form.html.twig', [
         'formView' => $form->createView(), 'action' => "Modifier"
         ]);
     }
 
-    #[Route('/bien/suppr/{id}', name: 'delete_bien')]
+    #[Route('/admin/bien/suppr/{id}', name: 'delete_bien')]
     public function delete(EntityManagerInterface $entityManager, int $id)
     {
         $bien = $entityManager->getRepository(Bien::class)->find($id);
-
         if(!$bien){
-            throw $this->createNotFoundException(
-                'No bien found for id '.$id
-            );
+            throw $this->createNotFoundException('No bien found');
         }
-
         $entityManager->remove($bien);
         $entityManager->flush();
-
-        return $this->render('bien/index.html.twig', [
-            'controller_name' => 'BienController',
-        ]);
+        $tab = $entityManager->getRepository(Bien::class)->findAll();
+        $this->addFlash('success', 'Bien supprimer avec succes !');
+        return $this->render('bien/index.html.twig', ['lstBien' => $tab]);
     }
 }

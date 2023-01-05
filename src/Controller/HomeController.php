@@ -37,7 +37,6 @@ class HomeController extends AbstractController
         $em->flush($b2); //remove pour sup
 */
         $tab = $bienRepository->findAll();
-
             return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController', 'lstBien' => $tab
         ]);

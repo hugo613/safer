@@ -18,7 +18,14 @@
         {% block header %}
             {% include 'header.html.twig' %}
         {% endblock %}
-        {% block body %}{% endblock %}
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <div class="mise-en-forme">
+            {% block body %}{% endblock %}
+        </div>
         {% block footer %}
             {% include 'footer.html.twig' %}
         {% endblock %}
