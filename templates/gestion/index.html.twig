@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GestionController!{% endblock %}
+
+{% block body %}
+    <div class="content">
+        <div class="gest-log">
+            {% if app.user %}
+                <h2>
+                    Vous êtes connecter en tant que : <b>{{ app.user.login }}</b>, <a class="btn btn-safer" href="{{ path('app_logout') }}" role="button">Se déconnecté</a>
+                </h2>
+             {% endif %}
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Gestion des Biens</h5>
+                        <p class="card-text">Ajouter, modifier et supprimer des biens</p>
+                        <a href="/admin/bien" class="btn btn-safer">Liste Bien</a>
+                    </div>
+                </div>
+            </div>
+             <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Gestion des Catégorie</h5>
+                        <p class="card-text">Ajouter, modifier et supprimer des catégorie</p>
+                        <a href="/admin/categorie" class="btn btn-safer">Liste Categorie</a>
+                    </div>
+                </div>
+            </div>
+             <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Gestion des Admin</h5>
+                        <p class="card-text">Ajouter, modifier et supprimer des admin</p>
+                        <a href="/admin/admin" class="btn btn-safer">Liste Admin</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="separator"></div>
+    </div>
+{% endblock %}

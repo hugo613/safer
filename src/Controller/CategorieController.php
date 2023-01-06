@@ -13,14 +13,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CategorieController extends AbstractController
 {
-    #[Route('/categorie', name: 'app_categorie')]
+    #[Route('/admin/categorie', name: 'app_categorie')]
     public function index(CategorieRepository $categorieRepository): Response
     {
         $tab = $categorieRepository->findAll();
         return $this->render('categorie/index.html.twig', ['lstCat' => $tab]);
     }
 
-    #[Route('/categorie/add', name: 'add_cat')]
+    #[Route('/admin/categorie/add', name: 'add_cat')]
     public function add(HttpFoundationRequest $request, EntityManagerInterface $entityManager)
     {
         $categorie = new Categorie();
@@ -38,7 +38,7 @@ class CategorieController extends AbstractController
     }
 
 
-    #[Route('/categorie/modif/{id}', name: "update_cat")]
+    #[Route('/admin/categorie/modif/{id}', name: "update_cat")]
     public function update( HttpFoundationRequest $request, EntityManagerInterface $entityManager, int $id)
     {
         $categorie = $entityManager->getRepository(Categorie::class)->find($id);
@@ -60,7 +60,7 @@ class CategorieController extends AbstractController
         ]);
     }
 
-    #[Route('/categorie/suppr/{id}', name: 'delete_cat')]
+    #[Route('/admin/categorie/suppr/{id}', name: 'delete_cat')]
     public function delete(EntityManagerInterface $entityManager, int $id)
     {
         $categorie = $entityManager->getRepository(Categorie::class)->find($id);

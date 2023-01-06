@@ -3,7 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Admin;
-
+use PHPUnit\TextUI\XmlConfiguration\CodeCoverage\Report\Text;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -20,20 +20,12 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', TextType::class, ['attr'=>['class'=>'form-control', 'placeholder'=>'Saisir email']])
-            ->add('agreeTerms', CheckboxType::class, [
-                'mapped' => false,
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'You should agree to our terms.',
-                    ]),
-                ],
-            ])
+            ->add('email', TextType::class, ['attr'=>['class'=>'form-control', 'placeholder'=>'Saisir email (*)']])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
-                'attr' => ['class'=>'form-control', 'placeholder'=>'Saisir mot de passe', 'autocomplete' => 'new-password'],
+                'attr' => ['class'=>'form-control', 'placeholder'=>'Saisir mot de passe (*)', 'autocomplete' => 'new-password'],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',
@@ -46,7 +38,10 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('add', SubmitType::class, ['label'=>'Ajouter un bien', 'attr'=>['class'=>'form-control sumbit-form']])
+            ->add('nom', TextType::class, ['label'=>'nom','required' => false, 'attr'=>['class'=>'form-control', 'placeholder'=>'Saisir mom']])
+            ->add('prenom', TextType::class, ['label'=>'prenom','required' => false, 'attr'=>['class'=>'form-control', 'placeholder'=>'Saisir prénom']])
+            ->add('login', TextType::class, ['label'=>'login', 'attr'=>['class'=>'form-control', 'placeholder'=>'Saisir login (*)']])
+            ->add('add', SubmitType::class, ['label'=>'Ajouter un admin', 'attr'=>['class'=>'form-control sumbit-form']])
         ;
     }
 

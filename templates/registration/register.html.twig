@@ -14,11 +14,17 @@
         </thead>
         <tbody>
             <tr>
+                <td colspan=1>{{form_row(registrationForm.nom)}}</td>
+                <td colspan=1>{{form_row(registrationForm.prenom)}}</td>
+            </tr>
+            <tr>
+                <td colspan=2>{{form_row(registrationForm.login)}}</td>
+            </tr>
+            <tr>
                 <td colspan=2>{{form_row(registrationForm.email)}}</td>
             </tr>
             <tr>
-                <td colspan=1>{{ form_row(registrationForm.plainPassword, {label: 'Password'})}}</td>
-                <td colspan=1>{{ form_row(registrationForm.agreeTerms) }}</td>
+                <td colspan=2>{{ form_row(registrationForm.plainPassword, {label: 'Password'})}}</td>
             </tr>
              <tr>
                 <td colspan=2>{{form_row(registrationForm.add)}}</td>
@@ -26,5 +32,6 @@
         </tbody>
     </table>
     {{ form_end(registrationForm) }}
+    <p>* champs obligatiore</p>
 </div>
 {% endblock %}

@@ -41,20 +41,35 @@ td{
     border-width: 1px;
 }
 
-.sumbit-form{
+.top-page{
+    display: flex;
+    height: max-content;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    justify-content: space-around;
+    border: solid;
+    border-radius: 1em;
+    border-width: 1px;
+    background-color: aliceblue;
+}
+
+.description{
+    margin-top: 30px;
+}
+
+.sumbit-form, .btn-safer{
     text-align: center;
-    margin-top: 20px;
     color: white;
     text-decoration: none;
     background-color: #8ba612;
 }
 
-.log-out{
-    text-align: center;
+.sumbit-form{
     margin-top: 20px;
-    color: white;
-    text-decoration: none;
-    background-color: #8ba612;
 }
 
 .sumbit-form:hover, .log-out:hover{
@@ -82,4 +97,14 @@ td{
     width: 76%;
     margin-left: 12%;
     box-shadow: 2px 1px 32px 8px rgba(0,0,0,0.15);
+}
+
+.gestion{
+    width: 100%;
+    background-color: #768d10;
+}
+
+.gest-log{
+    margin-top: 30px;
+    margin-bottom: 30px;
 }

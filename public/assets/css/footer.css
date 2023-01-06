@@ -1,32 +1,18 @@
 .footer{
-    width: 100%;
-    height: 50px;
+    height: 200px;
     color: white;
     background-color: rgb(53, 53, 53);
-    font-family: "Arial";
+    font-family: "Arial Rounded MT Bold";
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    font-size: medium;
-    position: fixed;
-    bottom: 0;
-  }
-.right-text{
-  width: 100%;
-  height: 200px;
-  color: white;
-  background-color: rgb(53, 53, 53);
-  font-family: "Arial";
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: right;
-  font-size: medium;
-  position: fixed;
-  bottom: 0;
+    justify-content: space-around;;
+    font-size: small;
+}
+
+.item-footer{
+    display: flex;
+    flex-direction: row;
 }

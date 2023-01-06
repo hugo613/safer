@@ -21,7 +21,7 @@ class BienController extends AbstractController
     }
 
 
-    #[Route('/admn/bien/add', name: 'add_bien')]
+    #[Route('/admin/bien/add', name: 'add_bien')]
     public function add(HttpFoundationRequest $request, EntityManagerInterface $entityManager)
     {
         $bien = new Bien();
