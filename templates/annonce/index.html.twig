@@ -35,7 +35,7 @@
             <div class="card-body">
                 <div class="annonce">
                     <div class="item-annonce-img">
-                        <img class="card-img-top" src="{{ asset('uploads/images/'{{ bien.images }}') }}" >
+                        <img class="card-img-top" src="{{ asset('uploads/images/')}}{{ bien.image }}" >
                     </div>
                     <div class="item-annonce">
                         <h5 class="card-title">{{ bien.titre }}</h5>
@@ -61,6 +61,7 @@
             </div>
         </div>
         {% endfor %}
+        {{ knp_pagination_render(lstBien) }}
     </div>
 </div>
 {% endblock %}
