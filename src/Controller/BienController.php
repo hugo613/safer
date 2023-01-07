@@ -7,9 +7,11 @@ use App\Form\BienType;
 use App\Repository\BienRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class BienController extends AbstractController
 {
@@ -22,12 +24,30 @@ class BienController extends AbstractController
 
 
     #[Route('/admin/bien/add', name: 'add_bien')]
-    public function add(HttpFoundationRequest $request, EntityManagerInterface $entityManager)
+    public function add(HttpFoundationRequest $request, EntityManagerInterface $entityManager, SluggerInterface $slugger)
     {
         $bien = new Bien();
         $form = $this->createForm(BienType::class, $bien);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
+            $imgFile = $form->get('img')->getData();
+
+            if ($imgFile) {
+                $originalFilename = pathinfo($imgFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$imgFile->guessExtension();
+
+                // Move the file to the directory where brochures are stored
+                try {
+                    $imgFile->move(
+                        $this->getParameter('image_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    $e;
+                }
+                $bien->setImage($newFilename);
+            }
             $entityManager->persist($bien);
             $entityManager->flush();
             $this->addFlash('success', 'Bien cree avec succes !');

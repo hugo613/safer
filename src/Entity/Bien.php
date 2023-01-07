@@ -38,6 +38,9 @@ class Bien
     #[ORM\Column(length: 100, nullable: true)]
     private ?string $ville = null;
 
+    #[ORM\Column(length: 100)]
+    private ?string $image = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -135,6 +138,18 @@ class Bien
     public function setVille(?string $ville): self
     {
         $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
