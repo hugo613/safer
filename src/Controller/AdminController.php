@@ -29,6 +29,6 @@ class AdminController extends AbstractController
         $entityManager->flush();
         $tab = $entityManager->getRepository(Admin::class)->findAll();
         $this->addFlash('success', 'Admin supprimer avec succes !');
-        return $this->render('admin/index.html.twig', ['lstAdmin' => $tab]);
+        return $this->render('admin/index.html.twig', ['lstAdmin' => $tab, 'url' => $_SERVER['REQUEST_URI']]);
     }
 }

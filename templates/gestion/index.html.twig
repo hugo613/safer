@@ -7,7 +7,7 @@
         <div class="gest-log">
             {% if app.user %}
                 <h2>
-                    Vous êtes connecter en tant que : <b>{{ app.user.login }}</b>, <a class="btn btn-safer" href="{{ path('app_logout') }}" role="button">Se déconnecté</a>
+                    Vous êtes connecter en tant que : <b>{{ app.user.login }}</b> <a class="btn btn-safer" href="{{ path('app_logout') }}" role="button">Se déconnecté</a>
                 </h2>
              {% endif %}
         </div>

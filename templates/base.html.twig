@@ -14,7 +14,7 @@
             <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
         {% endblock %}
     </head>
-    <body>
+    <body style="background-image:url('{{ asset('images/background.jpg') }}')">
         {% block header %}
             {% include 'header.html.twig' %}
         {% endblock %}
@@ -27,7 +27,7 @@
             {% block body %}{% endblock %}
         </div>
         {% block footer %}
-            {% include 'bottom.html.twig' %}
+            {% include 'footer.html.twig' %}
         {% endblock %}
     </body>
 </html>
