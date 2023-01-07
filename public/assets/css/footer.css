@@ -10,6 +10,7 @@
     align-items: center;
     justify-content: space-around;;
     font-size: small;
+    bottom: 0;
 }
 
 .item-footer{

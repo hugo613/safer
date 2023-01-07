@@ -1,8 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contact{% endblock %}
+{% block title %}Hello BienController!{% endblock %}
 
 {% block body %}
-Rentrez votre demande içi pour recevoir un mail si une offre de ce type apparaît
-{{form(formulaire)}}
+<div class="content">
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Email</th>
+                <th scope="col">Descrition</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in lstContact %}
+            <tr>
+                <td>{{ contact.id }}</td>
+                <td>{{ contact.mail }}</td>
+                <td>{{ bien.description }}</td>
+                <td>{{ bien.date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="separator"></div>
+    <a href="/admin/gestion" class="form-control sumbit-form">Retour</a>
+</div>
 {% endblock %}

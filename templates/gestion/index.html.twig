@@ -11,8 +11,17 @@
                 </h2>
              {% endif %}
         </div>
+        <div>
+            <div>
+
+            </div>
+            <div>
+            </div>
+        </div>
+
+
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Gestion des Biens</h5>
@@ -21,25 +30,35 @@
                     </div>
                 </div>
             </div>
-             <div class="col-sm-4">
+             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Gestion des Catégorie</h5>
+                        <h5 class="card-title">Gestion des Catégories</h5>
                         <p class="card-text">Ajouter, modifier et supprimer des catégorie</p>
                         <a href="/admin/categorie" class="btn btn-safer">Liste Categorie</a>
                     </div>
                 </div>
             </div>
-             <div class="col-sm-4">
+        </div>
+        <div class="row">
+             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Gestion des Admin</h5>
+                        <h5 class="card-title">Gestion des Admins</h5>
                         <p class="card-text">Ajouter, modifier et supprimer des admin</p>
                         <a href="/admin/admin" class="btn btn-safer">Liste Admin</a>
                     </div>
                 </div>
             </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Gestion des Messages</h5>
+                        <p class="card-text">Voir la liste des massage envoyer au administrateur</p>
+                        <a href="/admin/contact" class="btn btn-safer">Liste Message</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="separator"></div>
     </div>
 {% endblock %}

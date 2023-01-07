@@ -1,6 +1,5 @@
 html, body{
     height: 100%;
-    min-height: 80%;
 }
 
 table{
@@ -10,6 +9,7 @@ table{
 .content{
     width: 90%;
     margin-left: 5%;
+    height: 100%;
     align-items: center;
     justify-content: space-between;
     padding-bottom: 40px;
