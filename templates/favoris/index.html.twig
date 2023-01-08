@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FavorisController!{% endblock %}
+
+{% block body %}
+    <div class="bg-light p-3">
+        <h1>Vos favoris</h1>
+    </div>
+
+    {% if items | length >0 %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>titre</th>
+                    <th>description</th>
+                    <th>prix</th>
+                    <th>cp</th>
+                    <th>surface</th>
+                    <th>ville</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td>{{ item.bien.titre }}</td>
+                        <td>{{ item.bien.description }}</td>
+                        <td>{{ item.bien.prix }}</td>
+                        <td>{{ item.bien.cp }}</td>
+                        <td>{{ item.bien.surface}}</td>
+                        <td>{{ item.bien.ville}}</td>
+                        <td>
+                            <a href="{{ path('app_favorissuppr',{'id': item.bien.id})}}" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    {% else %}
+    <p>Vide</p>
+
+    {% endif %}
+
+{% endblock %}
