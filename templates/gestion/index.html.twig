@@ -7,7 +7,7 @@
         <div class="gest-log">
             {% if app.user %}
                 <h2>
-                    Vous êtes connecter en tant que : <b>{{ app.user.login }}</b> <a class="btn btn-safer" href="{{ path('app_logout') }}" role="button">Se déconnecté</a>
+                    Vous êtes connecté en tant que : <b>{{ app.user.login }}</b> <a class="btn btn-safer" href="{{ path('app_logout') }}" role="button">Se déconnecté</a>
                 </h2>
              {% endif %}
         </div>
@@ -18,8 +18,6 @@
             <div>
             </div>
         </div>
-
-
         <div class="row">
             <div class="col-sm-6">
                 <div class="card">
@@ -34,7 +32,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Gestion des Catégories</h5>
-                        <p class="card-text">Ajouter, modifier et supprimer des catégorie</p>
+                        <p class="card-text">Ajouter, modifier et supprimer des catégories</p>
                         <a href="/admin/categorie" class="btn btn-safer">Liste Categorie</a>
                     </div>
                 </div>
@@ -45,7 +43,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Gestion des Admins</h5>
-                        <p class="card-text">Ajouter, modifier et supprimer des admin</p>
+                        <p class="card-text">Ajouter, modifier et supprimer des admins</p>
                         <a href="/admin/admin" class="btn btn-safer">Liste Admin</a>
                     </div>
                 </div>
@@ -54,7 +52,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Gestion des Messages</h5>
-                        <p class="card-text">Voir la liste des massage envoyer au administrateur</p>
+                        <p class="card-text">Voir la liste des massages envoyé aux administrateurs</p>
                         <a href="/admin/contact" class="btn btn-safer">Liste Message</a>
                     </div>
                 </div>

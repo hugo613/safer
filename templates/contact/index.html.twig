@@ -18,8 +18,8 @@
             <tr>
                 <td>{{ contact.id }}</td>
                 <td>{{ contact.mail }}</td>
-                <td>{{ bien.description }}</td>
-                <td>{{ bien.date }}</td>
+                <td>{{ contact.description }}</td>
+                <td>{{ contact.date|date('Y-m-d') }}</td>
             </tr>
             {% endfor %}
         </tbody>

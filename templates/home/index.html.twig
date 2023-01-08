@@ -37,11 +37,11 @@
                     <ul class="list-group">
                     {% for categorie in lstCat %}
                         <li class="list-group-item">
-                            <a href="#" class="card-text lst-link">{{ categorie.type }}</a>
+                            <a href="annonce/{{ categorie.id }}" class="card-text lst-link">{{ categorie.type }}</a>
                         </li>                      
                     {% endfor %}
                     </ul>
-                    <a href="#" class="form-control sumbit-form">Toute les annonces</a>
+                    <a href="/annonce" class="form-control sumbit-form">Toute les annonces</a>
                 </div>
             </div>
         </div>

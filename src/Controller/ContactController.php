@@ -33,7 +33,7 @@ class ContactController extends AbstractController
             $contact->setDate(new DateTimeImmutable());
             $entityManager->persist($contact);
             $entityManager->flush();
-            $this->addFlash('success', 'Categorie cree avec succes !');
+            $this->addFlash('success', 'Message envoyer !');
             return $this->redirectToRoute('app_contact');
         
         }
