@@ -32,8 +32,8 @@ class BienType extends AbstractType
             ->add('surface', TextType::class, ['label'=>'Surface', 'attr'=>['class'=>'form-control', 'placeholder'=>'Saisir surface']])
             ->add('ville', TextType::class, ['label'=>'Ville', 'attr'=>['class'=>'form-control', 'placeholder'=>'Saisir nom de la ville']])
             ->add('categorie', EntityType::class, ['class' => Categorie::class, 'label'=>'Categorie', 'attr'=>['class'=>'form-control'], 'choice_label' => 'Type',])
-            ->add('add', SubmitType::class, ['label'=>'Bien', 'attr'=>['class'=>'form-control sumbit-form']])
-            ->add('img', FileType::class, ['label'=>'Image',  'mapped' => false, 'required' => true, 'constraints'=>[new File(['maxSize' => '1024k', 'mimeTypesMessage' => 'Please upload a valid png/jpg document',])]]);
+            ->add('add', SubmitType::class, ['label'=>'Ajouter Bien', 'attr'=>['class'=>'form-control sumbit-form']])
+            ->add('img', FileType::class, ['label'=>'Image',  'mapped' => false, 'required' => false, 'constraints'=>[new File(['maxSize' => '1024k', 'mimeTypesMessage' => 'Please upload a valid png/jpg document',])]]);
         ;
     }
 
